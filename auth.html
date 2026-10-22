@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Login & Sign Up | LogicCore AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body { background-color: #030712; color: #f8fafc; font-family: 'Inter', sans-serif; }
+    .glass { background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+  <div class="absolute top-10 left-1/3 w-96 h-96 bg-indigo-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <!-- Minimal Header -->
+  <header class="max-w-7xl w-full mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center">
+        <i class="fa-solid fa-microchip text-white"></i>
+      </div>
+      <span class="font-bold text-xl tracking-tight text-white">LogicCore <span class="text-indigo-400">AI</span></span>
+    </a>
+    <a href="index.html" class="text-sm text-slate-400 hover:text-white flex items-center gap-2">
+      <i class="fa-solid fa-arrow-left"></i> Back to Website
+    </a>
+  </header>
+
+  <!-- Main Auth Card -->
+  <main class="max-w-5xl w-full mx-auto px-4 py-8 grid lg:grid-cols-12 gap-8 items-center">
+    <!-- Left Value Pitch -->
+    <div class="lg:col-span-6 space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
+        <i class="fa-solid fa-lock"></i> Enterprise Client Command Center
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
+        Manage Your AI Agents, Software & Campaigns in One Portal.
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Apna account banayein ya login karein. Portal ke andar aap naye software/AI projects launch kar sakte hain, live AI agents test kar sakte hain, aur instant project proposals download kar sakte hain.
+      </p>
+      <div class="space-y-3 pt-2 text-sm text-slate-300">
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-circle-check text-cyan-400"></i>
+          <span>Real-Time Project Progress & Milestone Tracking</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-circle-check text-cyan-400"></i>
+          <span>Interactive LogicCore AI Agent Sandbox</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-circle-check text-cyan-400"></i>
+          <span>Instant Cost Quotes & Printable Proposals</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Auth Box -->
+    <div class="lg:col-span-6">
+      <div class="glass rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
+        <!-- Mode Switch Tabs -->
+        <div class="grid grid-cols-2 gap-2 p-1.5 bg-slate-900 rounded-2xl mb-6 border border-slate-800">
+          <button id="tab-login" class="py-2.5 rounded-xl text-sm font-semibold bg-indigo-600 text-white transition">
+            Log In
+          </button>
+          <button id="tab-signup" class="py-2.5 rounded-xl text-sm font-semibold text-slate-400 hover:text-white transition">
+            Create Account
+          </button>
+        </div>
+
+        <!-- Alert Message Box -->
+        <div id="auth-alert" class="hidden mb-4 p-3.5 rounded-xl text-xs font-medium"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="form-login" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-400 mb-1.5">Email Address</label>
+            <input type="email" id="login-email" required placeholder="client@company.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-400 mb-1.5">Password</label>
+            <input type="password" id="login-password" required placeholder="••••••••" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+          <button type="submit" class="w-full py-3.5 rounded-xl font-semibold bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white shadow-lg shadow-indigo-500/20 transition">
+            Sign In to Dashboard <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </form>
+
+        <!-- SIGN UP FORM (Hidden by default) -->
+        <form id="form-signup" class="space-y-4 hidden">
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-400 mb-1.5">Full Name *</label>
+            <input type="text" id="signup-name" required placeholder="Tushar Chavan" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-400 mb-1.5">Company / Brand Name *</label>
+            <input type="text" id="signup-company" required placeholder="My Enterprise Pvt Ltd" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-400 mb-1.5">Work Email *</label>
+            <input type="email" id="signup-email" required placeholder="you@company.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-400 mb-1.5">Create Password (Min 6 chars) *</label>
+            <input type="password" id="signup-password" required minlength="6" placeholder="Create strong password" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+          </div>
+          <button type="submit" class="w-full py-3.5 rounded-xl font-semibold bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white shadow-lg shadow-indigo-500/20 transition">
+            Create Enterprise Account <i class="fa-solid fa-user-plus ml-1"></i>
+          </button>
+        </form>
+
+        <!-- Instant Demo Access Divider -->
+        <div class="my-6 flex items-center gap-3">
+          <div class="h-px bg-slate-800 flex-1"></div>
+          <span class="text-[11px] uppercase tracking-wider text-slate-500">Quick Testing</span>
+          <div class="h-px bg-slate-800 flex-1"></div>
+        </div>
+
+        <button id="btn-demo-login" type="button" class="w-full py-3 rounded-xl text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-slate-700 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> 1-Click Instant Demo Client Login
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 text-xs text-slate-500">
+    LogicCore AI Authentication Engine • Secured Session Storage
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

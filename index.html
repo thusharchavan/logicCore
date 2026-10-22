@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogicCore AI | Enterprise AI Agents, Software & Digital Growth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #030712; color: #f8fafc; }
+    .glass { background: rgba(17, 24, 39, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .glow-indigo { box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.45); }
+    .gradient-text { background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+          <i class="fa-solid fa-microchip text-white text-xl"></i>
+        </div>
+        <div>
+          <span class="font-display font-bold text-xl tracking-tight text-white">LogicCore <span class="text-indigo-400">AI</span></span>
+          <span class="block text-[10px] uppercase tracking-widest text-slate-400 -mt-1">Enterprise Solutions</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#services" class="hover:text-white transition">Services</a>
+        <a href="#ai-agents" class="hover:text-white transition">AI Agents</a>
+        <a href="#estimator" class="hover:text-white transition">Cost Estimator</a>
+        <a href="#contact" class="hover:text-white transition">Contact</a>
+      </nav>
+
+      <!-- Dynamic Auth Action Area (Updated by app.js) -->
+      <div id="nav-auth-area" class="flex items-center gap-3">
+        <a href="auth.html" class="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-200 hover:text-white border border-slate-700 hover:border-slate-500 transition">
+          Log In
+        </a>
+        <a href="auth.html?mode=signup" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white shadow-lg shadow-indigo-500/25 transition">
+          Client Portal <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-36 pb-24 overflow-hidden">
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-indigo-600/20 blur-[130px] rounded-full pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          Next-Gen AI Engineering & Business Scaling
+        </div>
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+          Build Intelligent <span class="gradient-text">AI Agents, Software</span> & Scalable Growth.
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          LogicCore AI engineers custom software ecosystems, autonomous AI workflows, data-driven digital marketing funnels, and enterprise risk intelligence for modern businesses.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#estimator" class="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:opacity-95 text-white glow-indigo transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-calculator"></i> Calculate Project Cost
+          </a>
+          <a href="dashboard.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold glass hover:bg-slate-800/80 text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-bolt text-cyan-400"></i> Launch Client Workspace
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Metrics Bar -->
+      <div class="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div class="glass p-6 rounded-2xl text-center border border-slate-800">
+          <div class="font-display text-3xl font-bold text-white">99.4%</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">AI Automation Accuracy</div>
+        </div>
+        <div class="glass p-6 rounded-2xl text-center border border-slate-800">
+          <div class="font-display text-3xl font-bold text-cyan-400">10x</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Faster Deployment</div>
+        </div>
+        <div class="glass p-6 rounded-2xl text-center border border-slate-800">
+          <div class="font-display text-3xl font-bold text-indigo-400">24/7</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Autonomous AI Agents</div>
+        </div>
+        <div class="glass p-6 rounded-2xl text-center border border-slate-800">
+          <div class="font-display text-3xl font-bold text-emerald-400">360°</div>
+          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Tech + Marketing + Risk</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 CORE ENTERPRISE SERVICES -->
+  <section id="services" class="py-24 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Our Enterprise Capabilities</h2>
+        <p class="font-display text-3xl sm:text-5xl font-bold text-white">Four Pillars of LogicCore AI</p>
+        <p class="text-slate-400 mt-4">Complete end-to-end execution from custom code and autonomous AI to revenue scaling and risk protection.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Service 1 -->
+        <div class="glass p-8 rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition group">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl mb-6 group-hover:scale-110 transition">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">1. AI Agent Architecture</h3>
+          <p class="text-slate-400 mb-6 leading-relaxed">
+            Custom LLM-powered autonomous agents for customer support, WhatsApp/CRM lead qualification, automated appointment booking, and internal workflow execution.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-300 mb-6">
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>24/7 Multi-Channel Sales & Support Agents</li>
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>RAG Knowledge-Base Trained on Your Business Data</li>
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>API & Webhook Workflow Automation</li>
+          </ul>
+          <a href="dashboard.html" class="inline-flex items-center text-sm font-semibold text-indigo-400 hover:text-indigo-300">
+            Test AI Agent in Portal <i class="fa-solid fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass p-8 rounded-3xl border border-slate-800 hover:border-cyan-500/50 transition group">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 transition">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">2. Custom Software & ERP Development</h3>
+          <p class="text-slate-400 mb-6 leading-relaxed">
+            Scalable full-stack web applications, enterprise ERP portals, SaaS products, and custom business management dashboards tailored to your operations.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-300 mb-6">
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>Custom Web Apps, Admin Portals & ERPs</li>
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>Python, Modern JS, Cloud Database Architecture</li>
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>High-Security Role-Based Access Control</li>
+          </ul>
+          <a href="#estimator" class="inline-flex items-center text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+            Estimate Software Build <i class="fa-solid fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass p-8 rounded-3xl border border-slate-800 hover:border-purple-500/50 transition group">
+          <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">3. Performance Digital Marketing</h3>
+          <p class="text-slate-400 mb-6 leading-relaxed">
+            ROI-focused digital growth campaigns combining AI-driven ad targeting, conversion-optimized landing funnels, technical SEO, and high-impact brand creatives.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-300 mb-6">
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>Meta & Google Performance Ad Campaigns</li>
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>High-Conversion Lead Generation Funnels</li>
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>Social Media Branding & Content Systems</li>
+          </ul>
+          <a href="#estimator" class="inline-flex items-center text-sm font-semibold text-purple-400 hover:text-purple-300">
+            Plan Marketing Campaign <i class="fa-solid fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="glass p-8 rounded-3xl border border-slate-800 hover:border-emerald-500/50 transition group">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:scale-110 transition">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">4. Enterprise & Algorithmic Risk Analysis</h3>
+          <p class="text-slate-400 mb-6 leading-relaxed">
+            Data-backed risk modeling, software vulnerability audits, financial/market trend analytics, and predictive decision support systems.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-300 mb-6">
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>Predictive Analytics & Quantitative Modeling</li>
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>Operational & Technical Bottleneck Audits</li>
+            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i>Automated Real-Time KPI Alert Dashboards</li>
+          </ul>
+          <a href="#estimator" class="inline-flex items-center text-sm font-semibold text-emerald-400 hover:text-emerald-300">
+            Request Risk Audit <i class="fa-solid fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI AGENTS SPOTLIGHT -->
+  <section id="ai-agents" class="py-20 bg-slate-950/60 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass rounded-3xl p-8 sm:p-12 border border-indigo-500/20">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">LIVE IN CLIENT PORTAL</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4 mb-4">
+              Deploy Ready-to-Work AI Agents for Your Business
+            </h2>
+            <p class="text-slate-400 mb-6 leading-relaxed">
+              Hum sirf chatbots nahi banate—hum autonomous AI employees banate hain jo aapke CRM, Website, aur WhatsApp se jud kar leads close karte hain aur operations sambhalte hain.
+            </p>
+            <div class="grid sm:grid-cols-3 gap-4 mb-8">
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+                <div class="text-indigo-400 font-bold text-sm mb-1">Sales Closer AI</div>
+                <p class="text-xs text-slate-400">Qualifies leads, shares pricing & books calls 24/7.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+                <div class="text-cyan-400 font-bold text-sm mb-1">ERP Support AI</div>
+                <p class="text-xs text-slate-400">Resolves customer tickets & queries automatically.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+                <div class="text-emerald-400 font-bold text-sm mb-1">Risk & Data AI</div>
+                <p class="text-xs text-slate-400">Monitors business metrics & flags anomalies.</p>
+              </div>
+            </div>
+            <a href="dashboard.html" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold bg-indigo-600 hover:bg-indigo-500 text-white transition">
+              <i class="fa-solid fa-terminal"></i> Open Live AI Agent Sandbox
+            </a>
+          </div>
+          <div class="lg:col-span-5">
+            <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 shadow-2xl">
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                  <span class="text-xs font-mono text-slate-300">LogicCore_Agent_v4.2 // ONLINE</span>
+                </div>
+                <span class="text-[11px] text-indigo-400 font-mono">Latency: 42ms</span>
+              </div>
+              <div class="space-y-3 text-xs font-mono">
+                <div class="p-3 rounded-xl bg-slate-800/70 text-slate-300">
+                  <span class="text-cyan-400 font-bold">[Client]:</span> Mujhe apni company ke liye Custom CRM aur WhatsApp AI Bot chahiye.
+                </div>
+                <div class="p-3 rounded-xl bg-indigo-950/60 border border-indigo-500/30 text-slate-200">
+                  <span class="text-indigo-400 font-bold">[LogicCore AI]:</span> Blueprint ready! Hum 3 modules deploy karenge: Lead Capture Web ERP, Automated WhatsApp AI Closer, aur Real-time Analytics Dashboard. Estimated timeline: 3 Weeks.
+                </div>
+                <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 flex items-center justify-between">
+                  <span><i class="fa-solid fa-circle-check mr-1"></i> Proposal Auto-Generated</span>
+                  <span>Ready in Portal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PROJECT COST & TIMELINE ESTIMATOR -->
+  <section id="estimator" class="py-24 border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">Interactive Pricing Tool</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold text-white mt-2">Instant Project Cost Calculator</h2>
+        <p class="text-slate-400 mt-3">Apni requirement select karein aur turant estimated budget aur delivery timeline dekhein.</p>
+      </div>
+
+      <div class="glass rounded-3xl p-6 sm:p-10 border border-slate-800 grid lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <label class="block text-sm font-semibold text-slate-200 mb-2">1. Select Core Service Category</label>
+            <select id="calc-service" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-indigo-500">
+              <option value="ai-agent" data-base="25000" data-weeks="2">AI Agent Architecture & Automation (Base: ₹25,000)</option>
+              <option value="custom-software" data-base="45000" data-weeks="4">Custom Web Software / ERP System (Base: ₹45,000)</option>
+              <option value="digital-marketing" data-base="18000" data-weeks="1">Performance Digital Marketing & Funnel (Base: ₹18,000)</option>
+              <option value="risk-analysis" data-base="30000" data-weeks="3">Enterprise Risk & Data Analytics Suite (Base: ₹30,000)</option>
+              <option value="full-enterprise" data-base="85000" data-weeks="6">Complete LogicCore 360° Enterprise Suite (Base: ₹85,000)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-200 mb-2">2. Project Scale & Complexity</label>
+            <div class="grid grid-cols-3 gap-3">
+              <label class="cursor-pointer">
+                <input type="radio" name="calc-scale" value="1" class="peer sr-only" checked />
+                <div class="p-3 rounded-xl border border-slate-800 bg-slate-900/70 peer-checked:border-indigo-500 peer-checked:bg-indigo-950/40 text-center transition">
+                  <div class="font-bold text-sm text-white">Startup</div>
+                  <div class="text-[11px] text-slate-400">Standard MVP</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="calc-scale" value="1.5" class="peer sr-only" />
+                <div class="p-3 rounded-xl border border-slate-800 bg-slate-900/70 peer-checked:border-indigo-500 peer-checked:bg-indigo-950/40 text-center transition">
+                  <div class="font-bold text-sm text-white">Growth</div>
+                  <div class="text-[11px] text-slate-400">Multi-User / API</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="calc-scale" value="2.2" class="peer sr-only" />
+                <div class="p-3 rounded-xl border border-slate-800 bg-slate-900/70 peer-checked:border-indigo-500 peer-checked:bg-indigo-950/40 text-center transition">
+                  <div class="font-bold text-sm text-white">Enterprise</div>
+                  <div class="text-[11px] text-slat

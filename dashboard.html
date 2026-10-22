@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Command Center | LogicCore AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body { background-color: #030712; color: #f8fafc; font-family: 'Inter', sans-serif; }
+    .glass { background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Top Command Header -->
+  <header class="glass border-b border-slate-800 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center">
+            <i class="fa-solid fa-microchip text-white text-sm"></i>
+          </div>
+          <span class="font-bold text-lg text-white" style="font-family: 'Space Grotesk', sans-serif;">LogicCore <span class="text-indigo-400">Portal</span></span>
+        </a>
+        <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[11px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          ● Live Workspace
+        </span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="text-right hidden sm:block">
+          <div id="dash-user-name" class="text-sm font-semibold text-white">Loading...</div>
+          <div id="dash-user-company" class="text-[11px] text-slate-400">Enterprise Account</div>
+        </div>
+        <a href="index.html" class="px-3 py-2 rounded-xl text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300 hover:text-white">
+          <i class="fa-solid fa-globe mr-1"></i> Main Site
+        </a>
+        <button id="btn-logout" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 transition">
+          <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace Container -->
+  <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 grid lg:grid-cols-12 gap-8">
+
+    <!-- Sidebar Navigation -->
+    <aside class="lg:col-span-3 space-y-2">
+      <button data-tab="overview" class="dash-nav-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-sm font-semibold bg-indigo-600 text-white transition">
+        <i class="fa-solid fa-layer-group w-5"></i> Projects & Overview
+      </button>
+      <button data-tab="new-project" class="dash-nav-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-sm font-semibold text-slate-300 hover:bg-slate-900 transition">
+        <i class="fa-solid fa-plus-circle w-5 text-cyan-400"></i> Launch New Project
+      </button>
+      <button data-tab="ai-sandbox" class="dash-nav-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-sm font-semibold text-slate-300 hover:bg-slate-900 transition">
+        <i class="fa-solid fa-robot w-5 text-indigo-400"></i> AI Agent Sandbox
+      </button>
+      <button data-tab="proposals" class="dash-nav-btn w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-sm font-semibold text-slate-300 hover:bg-slate-900 transition">
+        <i class="fa-solid fa-file-invoice-dollar w-5 text-emerald-400"></i> Proposals & Quotes
+      </button>
+
+      <!-- Support Box -->
+      <div class="mt-8 p-5 rounded-2xl glass border border-slate-800">
+        <div class="text-xs font-bold uppercase text-indigo-400 mb-1">Dedicated Architect</div>
+        <p class="text-xs text-slate-400 mb-3">Need custom ERP or AI integration adjustments?</p>
+        <div class="text-xs text-slate-200 font-mono bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+          support@logiccore.ai
+        </div>
+      </div>
+    </aside>
+
+    <!-- Dynamic Tab Content Area -->
+    <main class="lg:col-span-9 space-y-6">
+
+      <!-- TAB 1: PROJECTS & OVERVIEW -->
+      <section id="tab-content-overview" class="dash-tab space-y-6">
+        <!-- KPI Cards -->
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="glass p-5 rounded-2xl border border-slate-800">
+            <div class="text-xs text-slate-400 uppercase">Active Projects</div>
+            <div id="stat-project-count" class="text-3xl font-bold text-white mt-1">0</div>
+          </div>
+          <div class="glass p-5 rounded-2xl border border-slate-800">
+            <div class="text-xs text-slate-400 uppercase">AI Sandbox Status</div>
+            <div class="text-3xl font-bold text-emerald-400 mt-1">Active</div>
+          </div>
+          <div class="glass p-5 rounded-2xl border border-slate-800">
+            <div class="text-xs text-slate-400 uppercase">Total Committed Value</div>
+            <div id="stat-total-budget" class="text-3xl font-bold text-cyan-400 mt-1">₹0</div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-bold text-white">Your Active Services & Deployments</h2>
+          <button onclick="switchDashboardTab('new-project')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white transition">
+            + New Project Request
+          </button>
+        </div>
+
+        <div id="projects-list" class="space-y-4">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </section>
+
+      <!-- TAB 2: LAUNCH NEW PROJECT -->
+      <section id="tab-content-new-project" class="dash-tab hidden">
+        <div class="glass p-6 sm:p-8 rounded-3xl border border-slate-800">
+          <h2 class="text-2xl font-bold text-white mb-2">Launch a New LogicCore Project</h2>
+          <p class="text-sm text-slate-400 mb-6">Select your service architecture below to initialize your project and generate an official proposal.</p>
+
+          <form id="form-new-project" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Project Title *</label>
+                <input type="text" id="proj-title" required placeholder="e.g. Automated WhatsApp Sales AI Agent" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Service Division *</label>
+                <select id="proj-category" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500">
+                  <option value="AI Agent Architecture">AI Agent Architecture</option>
+                  <option value="Custom Software / ERP">Custom Software / ERP</option>
+                  <option value="Performance Digital Marketing">Performance Digital Marketing</option>
+                  <option value="Enterprise Risk Analysis">Enterprise Risk Analysis</option>
+                  <option value="Full 360 Enterprise Suite">Full 360° Enterprise Suite</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Estimated Budget (INR ₹) *</label>
+                <input type="number" id="proj-budget" required value="35000" min="5000" step="1000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Target Timeline *</label>
+                <select id="proj-timeline" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500">
+                  <option value="2 Weeks (Rapid Sprint)">2 Weeks (Rapid Sprint)</option>
+                  <option value="4 Weeks (Standard Production)">4 Weeks (Standard Production)</option>
+                  <option value="6+ Weeks (Enterprise Rollout)">6+ Weeks (Enterprise Rollout)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Technical Specifications & Goals *</label>
+              <textarea id="proj-desc" rows="4" required placeholder="Describe the features, integrations, or marketing goals you want LogicCore AI to execute..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500"></textarea>
+            </div>
+
+            <button type="submit" class="px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white shadow-lg transition">
+              <i class="fa-solid fa-paper-plane mr-2"></i> Initialize Project & Generate Proposal
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- TAB 3: INTERACTIVE AI AGENT SANDBOX -->
+      <section id="tab-content-ai-sandbox" class="dash-tab hidden">
+        <div class="glass rounded-3xl p-6 border border-slate-800 flex flex-col h-[540px]">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-800">
+            <div>
+              <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-robot text-indigo-400"></i> LogicCore AI Agent Live Sandbox
+              </h2>
+              <p class="text-xs text-slate-400">Test how our autonomous AI agents respond to business, software, and marketing queries.</p>
+            </div>
+            <select id="agent-persona" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-cyan-400 font-semibold">
+              <option value="sales">Persona: AI Sales & Lead Closer</option>
+              <option value="architect">Persona: Software & ERP Architect</option>
+              <option value="marketing">Persona: Digital Growth & Risk Analyst</option>
+            </select>
+          </div>
+
+          <!-- Chat Messages Window -->
+          <div id="sandbox-messages" class="flex-1 overflow-y-auto py-4 space-y-3 pr-2 text-sm">
+            <div class="p-3.5 rounded-2xl bg-indigo-950/60 border border-indigo-500/30 text-slate-200 max-w-xl">
+              <div class="text-[11px] font-bold text-indigo-400 mb-1">LogicCore AI Agent</div>
+              Welcome to the LogicCore AI Sandbox! Aap mujhse AI Automation, Custom ERP Software cost, Digital Marketing ROI, ya Risk Analysis ke baare mein kuch bhi pooch sakte hain.
+            </div>
+          </div>
+
+          <!-- Quick Prompt Chips -->
+          <div class="flex flex-wrap gap-2 py-2 border-t border-slate-800/80">
+            <button type="button" class="sandbox-chip text-[11px] px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700">
+              WhatsApp AI Agent kaise kaam karta hai?
+            </button>
+            <button type="button" class="sandbox-chip text-[11px] px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700">
+              Custom ERP Software ka architecture batao
+            </button>
+            <button type="button" class="sandbox-chip text-[11px] px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700">
+              Digital Marketing se leads 3x kaise karein?
+            </button>
+          </div>
+
+          <!-- Input Bar -->
+          <form id="form-sandbox" class="pt-2 flex gap-2">
+            <input type="text" id="sandbox-input" required placeholder="Type a message to test the LogicCore AI Agent..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-indigo-500" />
+            <button type="submit" class="px-6 py-3 rounded-xl font-semibold bg-indigo-600 hover:bg-indigo-500 text-white transition">
+              Send <i class="fa-solid fa-paper-plane ml-1"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- TAB 4: PROPOSALS & QUOTES -->
+      <section id="tab-content-proposals" class="dash-tab hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-bold text-white">Generated Project Proposals & Invoices</h2>
+            <p class="text-xs text-slate-400">Har project request ka official summary jise aap print ya PDF save kar sakte hain.</p>
+          </div>
+          <button onclick="window.print()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-white border border-slate-700">
+            <i class="fa-solid fa-print mr-1"></i> Print / Save PDF
+          </button>
+        </div>
+        <div id="proposals-list" class="space-y-4"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
